@@ -1,42 +1,55 @@
 import React from 'react';
-import './App.css';
 import Product from './Product';
+import lemon from './assets/citroenen.jpeg';
+import lime from './assets/limoenen.png';
+import icecubes from './assets/ijsblokjes.jpg';
+import './App.css';
+import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 
 function App() {
-  return (
-    <main>
-        <Product
-           image = "https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg"
-           title="Lemon"
-           description="Een citroen is voor de meeste mensen te zuur om zo uit de hand te eten. Van citroen kun je het vruchtvlees, het sap en de schil gebruiken. Het sappige, lichtgele zure vruchtvlees versterkt de smaak van ander voedsel."
-        />
-        <Product
-            image = "https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg"
-            title="Lime"
-            description="Een citroen is voor de meeste mensen te zuur om zo uit de hand te eten. Van citroen kun je het vruchtvlees, het sap en de schil gebruiken. Het sappige, lichtgele zure vruchtvlees versterkt de smaak van ander voedsel."
-        />
-        <Product
-        image = "https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg"
-        title="Icecubes"
-        description="Een citroen is voor de meeste mensen te zuur om zo uit de hand te eten. Van citroen kun je het vruchtvlees, het sap en de schil gebruiken. Het sappige, lichtgele zure vruchtvlees versterkt de smaak van ander voedsel."
-        />
-        // <article className="product">
-        //     <img src="https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg" alt="picture of a lemon"/>
-        //     <h2 className="product-name">Lemon</h2>
-        //     <p className="product-description">A lemon is too sour for most people to eat out of hand. You can use the pulp, juice and zest of lemon. The juicy, light yellow sour pulp enhances the flavor of other foods.</p>
-        // </article>
-        // <article className="product">
-        //     <img src="https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg" alt="picture of a lemon"/>
-        //     <h2 className="product-name">Lime</h2>
-        //     <p className="product-description">A lemon is too sour for most people to eat out of hand. You can use the pulp, juice and zest of lemon. The juicy, light yellow sour pulp enhances the flavor of other foods.</p>
-        // </article>
-        // <article className="product">
-        //     <img src="https://www.plusonline.nl/sites/plusonline/files/citroen_1.jpg" alt="picture of a lemon"/>
-        //     <h2 className="product-name">Icecubes</h2>
-        //     <p className="product-description">A lemon is too sour for most people to eat out of hand. You can use the pulp, juice and zest of lemon. The juicy, light yellow sour pulp enhances the flavor of other foods.</p>
-        // </article>
-    </main>
-  );
+      return (
+          <>
+              <nav>
+                      <ul>
+                          <li>
+                              <a href="/">Shop</a>
+                          </li>
+                          <li>
+                              <a href="/">Our story</a>
+                          </li>
+                          <li>
+                              <a href="/">Blog</a>
+                          </li>
+                      </ul>
+                      <ShoppingCart className="shopping-cart-icon" />
+                  </nav>
+          <header>
+              <h1>Fruit perfection</h1>
+              <button type="button"
+                      onClick={() => console.log("You would love to buy something!")}
+                 >
+                  Shop now!
+              </button>
+          </header>
+          <main>
+                <Product
+                    image={lemon}
+                    title="Lemon"
+                    description="A lemon is too sour for most people to eat out of hand. You can use the pulp, juice and zest of lemon. The juicy, light yellow sour pulp enhances the flavor of other foods."
+                />
+                <Product
+                    image={lime}
+                    title="Lime"
+                    description="Lime is related to the lemon and orange and belongs to the citrus fruit (rue family). Limes are round and smaller than lemons. The skin is thin, quite smooth and green."
+                />
+                <Product
+                    image={icecubes}
+                    title="Icecubes"
+                    description="An ice cube or ice cube is frozen water in the shape of a small cube. It is made in a freezer by freezing water in a plastic mold."
+                />
+          </main>
+              </>
+      );
 }
 
 export default App;

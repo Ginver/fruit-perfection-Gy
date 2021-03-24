@@ -9,7 +9,13 @@ import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 function App() {
     const [messageValue, setMessageValue] = React.useState('');
     const [checkedTerms, toggleCheckedTerms] = React.useState(false);
-    const [emailValue, setEmailValue] = React.useState('');
+    const [submitted, setSubmitted] = React.useState(false);
+
+    function sendForm() {
+        console.log(`The message: "${messageValue}" has been sent successfully.`);
+        setSubmitted(true);
+    }
+
       return (
           <>
               <nav>
@@ -60,11 +66,11 @@ function App() {
                           type="text"
                           placeholder="Type your message here"
                           name="message"
-                          className={messageValue.length > 20 ? 'input-error' : ''}
+                          className={messageValue.length > 200 ? 'input-error' : ''}
                           value={messageValue}
                           onChange={(e) => setMessageValue(e.target.value)}
                       />
-                      {messageValue.length > 20 && <p className="error-message">Your message is too long!</p>}
+                      {messageValue.length > 200 && <p className="error-message">Your message is too long! Max. length: 200 character.</p>}
 
                       <label htmlFor="form-terms-and-conditions">
                           <input
@@ -79,6 +85,8 @@ function App() {
                   <button
                       type="submit"
                       disabled={!checkedTerms}
+                      // onClick={() => setSubmitted(true)}
+                      onClick={sendForm}
                   >SEND
                   </button>
                   </form>

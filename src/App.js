@@ -2,11 +2,12 @@ import React from 'react';
 import Product from './Product';
 import lemon from './assets/citroenen.jpeg';
 import lime from './assets/limoenen.png';
-import icecubes from './assets/ijsblokjes.jpg';
+import ijsblokjes from './assets/ijsblokjes.jpg';
 import './App.css';
 import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 
 function App() {
+    const [messageValue, setMessageValue] = React.useState('');
       return (
           <>
               <nav>
@@ -43,11 +44,28 @@ function App() {
                     description="Lime is related to the lemon and orange and belongs to the citrus fruit (rue family). Limes are round and smaller than lemons. The skin is thin, quite smooth and green."
                 />
                 <Product
-                    image={icecubes}
+                    image={ijsblokjes}
                     title="Icecubes"
                     description="An ice cube or ice cube is frozen water in the shape of a small cube. It is made in a freezer by freezing water in a plastic mold."
                 />
           </main>
+
+          <footer>
+              <div className="form-container">
+                  <h2>Contact form</h2>
+                  <form>
+                      <input
+                          type="text"
+                          placeholder="Type your message here"
+                          name="message"
+                          value={messageValue}
+                          onChange={(e) => setMessageValue(e.target.value)}
+                      />
+                     <button type="submit">SEND
+                    </button>
+                  </form>
+              </div>
+          </footer>
               </>
       );
 }

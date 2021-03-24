@@ -8,6 +8,7 @@ import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 
 function App() {
     const [messageValue, setMessageValue] = React.useState('');
+    const [termsAndConditionsValue, seTermsAndConditionsValue] = React.useState(false);
       return (
           <>
               <nav>
@@ -61,11 +62,20 @@ function App() {
                           value={messageValue}
                           onChange={(e) => setMessageValue(e.target.value)}
                       />
-                     <button type="submit">SEND
-                    </button>
+                      <label htmlFor="form-terms-and-conditions">
+                          <input
+                              type="checkbox"
+                              id="form-terms-and-conditions"
+                              name="terms-and-conditions"
+                              checked={termsAndConditionsValue}
+                              onChange={() => seTermsAndConditionsValue(!termsAndConditionsValue)}
+                          />I agree with the terms and conditions
+                      </label>
                   </form>
+                  <button type="submit">SEND
+                  </button>
               </div>
-          </footer>
+            </footer>
               </>
       );
 }

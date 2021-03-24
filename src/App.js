@@ -8,7 +8,8 @@ import { ReactComponent as ShoppingCart } from './assets/winkelmandje.svg';
 
 function App() {
     const [messageValue, setMessageValue] = React.useState('');
-    const [termsAndConditionsValue, seTermsAndConditionsValue] = React.useState(false);
+    const [checkedTerms, toggleCheckedTerms] = React.useState(false);
+    const [emailValue, setEmailValue] = React.useState('');
       return (
           <>
               <nav>
@@ -59,21 +60,28 @@ function App() {
                           type="text"
                           placeholder="Type your message here"
                           name="message"
+                          className={messageValue.length > 20 ? 'input-error' : ''}
                           value={messageValue}
                           onChange={(e) => setMessageValue(e.target.value)}
                       />
+                      {messageValue.length > 20 && <p className="error-message">Your message is too long!</p>}
+
                       <label htmlFor="form-terms-and-conditions">
                           <input
                               type="checkbox"
                               id="form-terms-and-conditions"
                               name="terms-and-conditions"
-                              checked={termsAndConditionsValue}
-                              onChange={() => seTermsAndConditionsValue(!termsAndConditionsValue)}
+                              checked={checkedTerms}
+                              onChange={() => toggleCheckedTerms(!checkedTerms)}
                           />I agree with the terms and conditions
                       </label>
-                  </form>
-                  <button type="submit">SEND
+
+                  <button
+                      type="submit"
+                      disabled={!checkedTerms}
+                  >SEND
                   </button>
+                  </form>
               </div>
             </footer>
               </>
